@@ -1,0 +1,375 @@
+{
+    "swagger": "2.0",
+    "basePath": "/",
+    "paths": {
+        "/cars/{budget}/{brand}": {
+            "parameters": [
+                {
+                    "name": "budget",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer"
+                },
+                {
+                    "name": "brand",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "description": "Gives user a recommended car [list] for a given budget",
+                "operationId": "get_cars",
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/comparisons": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "description": "Compares 3 brands on their reliability index and average repair cost",
+                "operationId": "get_comparisons",
+                "parameters": [
+                    {
+                        "name": "Brand_1",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Brand_2",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Brand_3",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/graphcomparisons": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "description": "Compares 3 brands on reliability index and average repair cost and generates a graph",
+                "operationId": "get_graphcomparisons",
+                "parameters": [
+                    {
+                        "name": "Brand_1",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Brand_2",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "Brand_3",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/loans": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "description": "Gives user the amount he needs to pay every month for loan payment",
+                "operationId": "get_loan",
+                "parameters": [
+                    {
+                        "name": "principal",
+                        "in": "query",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "interest",
+                        "in": "query",
+                        "type": "number"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/price": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "description": "Gives user a recommended price to sell the car",
+                "operationId": "get_price",
+                "parameters": [
+                    {
+                        "name": "brand",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "model",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "vehicleType",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "yearOfRegistration",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "gearbox",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "powerPS",
+                        "in": "query",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "kilometer",
+                        "in": "query",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "fuelType",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "notRepairedDamage",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/reliability": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "description": "Returns a graph of reliable car brands with their reliability indices",
+                "operationId": "get_reliability",
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/session": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Retrieved current user session"
+                    }
+                },
+                "description": "Retrieves current user session",
+                "operationId": "get_session",
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Session created Successfully"
+                    }
+                },
+                "description": "Generates a authentication token for the user session",
+                "operationId": "post_session",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/user": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "User Grant Admin Access"
+                    }
+                },
+                "description": "Gives user admin access. Needs Admin privilege.",
+                "operationId": "put_user",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "User details retrieved successfully"
+                    }
+                },
+                "description": "Retrieve user_id and username. Needs Admin privilege",
+                "operationId": "get_user",
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "User created successfully"
+                    }
+                },
+                "description": "Endpoint to create new user",
+                "operationId": "post_user",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    }
+                },
+                "description": "Delete a user from records. Needs Admin privilege.",
+                "operationId": "delete_user",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/user/{user_id}": {
+            "parameters": [
+                {
+                    "name": "user_id",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Username returned successfully"
+                    }
+                },
+                "description": "Returns a username according to their id. Needs Admin privilege.",
+                "operationId": "get_find_user",
+                "tags": [
+                    "Cars"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "Cars Dataset",
+        "version": "1.0",
+        "description": "This is just a simple example to show how publish data as a service."
+    },
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "API-KEY": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "AUTH-TOKEN"
+        }
+    },
+    "security": [
+        {
+            "API-KEY": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Cars",
+            "description": "Default namespace"
+        }
+    ],
+    "responses": {
+        "ParseError": {
+            "description": "When a mask can't be parsed"
+        },
+        "MaskError": {
+            "description": "When any error occurs on mask"
+        }
+    }
+}

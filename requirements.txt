@@ -1,0 +1,7 @@
+pandas
+flask
+sklearn
+flask-restplus
+flask_cors
+matplotlib
+flask_monitoringdashboard
